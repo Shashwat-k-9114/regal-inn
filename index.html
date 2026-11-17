@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Regal Inn · Manali</title>
+<meta name="description" content="The Regal Inn — a small, grand house on the Left Bank of the Beas, Manali. Managed by Suvin Hospitality Pvt. Ltd.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/*
+VOICE   quiet, assured, old-house hospitality; few words, lots of air
+IDEA    a hotel key handed across a brass counter: object-first luxury
+PICTURE photoreal 3D crown (turning) and brass room key, Manali photography
+COLOUR  deep deodar green field, ivory paper, brushed brass accent
+TYPE    Cormorant Garamond display, Jost body; italic serif for labels
+*/
+:root{
+  --green:#0a1d15; --green-2:#10291e; --green-3:#173a2b;
+  --ivory:#f5f0e5; --paper:#ece4d3; --ink:#18160f; --muted:#6b6455;
+  --brass:#b8924a; --brass-hi:#dcc08a;
+  --serif:'Cormorant Garamond',Georgia,serif; --sans:'Jost',system-ui,sans-serif;
+  --ease:cubic-bezier(.2,.75,.2,1);
+}
+*{margin:0;padding:0;box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--ivory);color:var(--ink);font:300 17px/1.7 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:clip}
+img,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--brass);color:var(--green)}
+.wrap{width:min(1240px,90vw);margin:0 auto}
+.label{font:italic 400 1.15rem/1 var(--serif);color:var(--brass)}
+h1,h2,h3{font-family:var(--serif);font-weight:300;line-height:1.04;text-wrap:balance}
+h2{font-size:clamp(2.4rem,5vw,4.4rem)}
+h2 em,h1 em{font-style:italic}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.7rem;min-height:50px;padding:0 1.9rem;border:1px solid var(--brass);color:var(--brass-hi);font:400 .82rem/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;background:transparent;cursor:pointer;transition:background .5s var(--ease),color .5s var(--ease)}
+.btn:hover{background:var(--brass);color:var(--green)}
+.btn.fill{background:var(--brass);color:var(--green)}
+.btn.fill:hover{background:var(--brass-hi)}
+.btn.ink{color:var(--green);border-color:var(--green)}
+.btn.ink:hover{background:var(--green);color:var(--ivory)}
+:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(28px);transition:opacity 1.3s var(--ease),transform 1.3s var(--ease)}
+.rv.in{opacity:1;transform:none}
+
+/* header */
+header{position:fixed;inset:0 0 auto;z-index:50;transition:background .6s,padding .6s;padding:1.4rem 0}
+header.solid{background:rgba(10,29,21,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:.7rem 0}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:2rem}
+.mark{display:flex;align-items:center;gap:.75rem;color:var(--ivory)}
+.mark img{width:40px;height:40px;object-fit:contain}
+.mark b{font:400 1.45rem/1 var(--serif);letter-spacing:.02em}
+header nav{display:flex;gap:2.2rem;color:rgba(245,240,229,.78);font-size:.9rem}
+header nav a:hover{color:var(--brass-hi)}
+.burger{display:none;background:none;border:0;color:var(--ivory);font:400 1rem var(--sans);cursor:pointer;min-height:44px}
+
+/* hero */
+.hero{position:relative;min-height:100svh;background:radial-gradient(ellipse 70% 62% at 50% 46%,#1b2a21 0%,#12241b 40%,var(--green) 78%);color:var(--ivory);display:grid;grid-template-rows:1fr auto;overflow:hidden}
+.hero-stage{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6.5rem 0 1.5rem}
+.crown-film{position:relative;width:min(40vw,50vh,460px);aspect-ratio:1;-webkit-mask-image:radial-gradient(circle at 50% 46%,#000 50%,transparent 71%);mask-image:radial-gradient(circle at 50% 46%,#000 50%,transparent 71%)}
+.crown-film video,.crown-film img{width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.hero h1{text-align:center;font-size:clamp(3.2rem,9vw,8.6rem);line-height:.95;letter-spacing:-.015em;color:var(--ivory);margin-top:-.4rem}
+.hero h1 em{color:var(--brass-hi)}
+.hero .place{margin-top:1rem;font:italic 400 1.2rem var(--serif);color:rgba(245,240,229,.7)}
+.hero-foot{position:relative;z-index:3;padding:0 0 2.6rem}
+.hero-foot .wrap{display:grid;grid-template-columns:1fr auto;align-items:end;gap:3rem}
+.hero-foot p{max-width:440px;color:rgba(245,240,229,.78);font-size:1.02rem}
+.book{display:flex;border:1px solid rgba(184,146,74,.45);background:rgba(10,29,21,.6);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.book label{display:flex;flex-direction:column;gap:.2rem;padding:.75rem 1.4rem;border-right:1px solid rgba(184,146,74,.25);font:italic 400 .98rem/1 var(--serif);color:var(--brass-hi)}
+.book input,.book select{background:none;border:0;color:var(--ivory);font:300 16px var(--sans);outline:0;color-scheme:dark;min-height:30px}
+.book select option{background:var(--green)}
+.book .btn{border:0;min-height:auto}
+
+/* valley film */
+.valley{position:relative;height:110svh;min-height:640px;overflow:hidden;background:var(--green);color:var(--ivory)}
+.valley video,.valley img.poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.valley video{opacity:0;transition:opacity 1.6s ease}.valley video.on{opacity:1}
+.credit{position:absolute;right:max(5vw,16px);bottom:1.2rem;z-index:3;font-size:.72rem;color:rgba(245,240,229,.55)}
+picture{display:contents}
+.valley::after{z-index:1;content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,29,21,.55) 0%,rgba(10,29,21,0) 30%,rgba(10,29,21,0) 55%,rgba(10,29,21,.85) 100%)}
+.valley .cap{position:absolute;left:0;right:0;bottom:9vh;z-index:2}
+.valley h2{font-size:clamp(2.8rem,7vw,6.4rem);max-width:12ch}
+.valley .cap p{max-width:420px;margin-top:1.2rem;color:rgba(245,240,229,.82)}
+
+/* house */
+.house{padding:clamp(6rem,12vw,11rem) 0}
+.house .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(3rem,7vw,7rem);align-items:center}
+.house h2{color:var(--green);margin:1rem 0 2rem}
+.house p{color:var(--muted);max-width:520px;margin-bottom:1.2rem}
+.house figure{position:relative}
+.house figure img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.house figcaption{margin-top:.9rem;font:italic 400 1rem var(--serif);color:var(--muted)}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:2.6rem;border-top:1px solid #d6ccb6}
+.facts div{padding:1.3rem 1rem 0 0}
+.facts b{display:block;font:400 2.1rem/1 var(--serif);color:var(--green)}
+.facts span{font-size:.88rem;color:var(--muted)}
+
+/* rooms */
+.rooms{background:var(--green);color:var(--ivory);padding:clamp(6rem,11vw,10rem) 0}
+.rooms-head{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:3.5rem}
+.rooms-head p{max-width:380px;color:rgba(245,240,229,.68)}
+.room-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.6rem}
+.room .ph{overflow:hidden;aspect-ratio:4/5;background:var(--green-2)}
+.room .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.8s var(--ease)}
+.room:hover .ph img{transform:scale(1.045)}
+.room h3{font-size:2rem;margin-top:1.3rem}
+.room .meta{color:var(--brass-hi);font:italic 400 1.05rem var(--serif);margin-top:.2rem}
+.room p{color:rgba(245,240,229,.66);font-size:.97rem;margin-top:.7rem}
+.note{margin-top:2.4rem;font-size:.82rem;color:rgba(245,240,229,.45)}
+
+/* key */
+.keyband{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.6fr);align-items:center;background:#0b1a13;color:var(--ivory)}
+.keyband img{order:2;width:100%;height:clamp(420px,46vw,720px);object-fit:cover;object-position:40% 50%}
+.keyband .cap{padding:3rem max(4vw,16px) 3rem max(5vw,16px)}
+.keyband h2{font-size:clamp(2.4rem,4.4vw,4.2rem);margin:.8rem 0 1.4rem}
+.keyband p{color:rgba(245,240,229,.75);margin-bottom:2rem}
+
+/* days */
+.days{padding:clamp(6rem,11vw,10rem) 0}
+.days h2{color:var(--green);max-width:14ch;margin:1rem 0 3.5rem}
+.day-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(2rem,4vw,4rem);align-items:start}
+.day-grid .two{margin-top:9rem}
+.day img{width:100%;aspect-ratio:5/4;object-fit:cover}
+.day.two img{aspect-ratio:4/5}
+.day h3{font-size:2.1rem;color:var(--green);margin:1.4rem 0 .6rem}
+.day p{color:var(--muted);max-width:480px}
+.day ul{list-style:none;margin-top:1.3rem;border-top:1px solid #d6ccb6}
+.day li{display:flex;justify-content:space-between;gap:1rem;padding:.75rem 0;border-bottom:1px solid #d6ccb6;font:400 1.2rem var(--serif);color:var(--green-3)}
+.day li span{font:300 .85rem var(--sans);color:var(--muted);white-space:nowrap}
+
+/* journey */
+.journey{background:var(--paper);padding:clamp(5rem,9vw,8rem) 0}
+.journey .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2rem,6vw,6rem);align-items:start}
+.journey h2{color:var(--green);margin-top:1rem}
+.addr{font:400 1.45rem/1.5 var(--serif);color:var(--green);padding-bottom:1.6rem;border-bottom:1px solid #cfc3a8;margin-bottom:1.6rem}
+.route{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1.4rem 2rem;margin-bottom:2.2rem}
+.route b{display:block;font:italic 400 1.05rem var(--serif);color:var(--brass)}
+.route span{color:var(--green-3)}
+
+/* reserve */
+.reserve{background:var(--green);color:var(--ivory);padding:clamp(6rem,11vw,10rem) 0}
+.reserve .wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(3rem,7vw,7rem);align-items:start}
+.reserve h2{margin:1rem 0 1.6rem}
+.reserve .intro p{color:rgba(245,240,229,.7);max-width:400px}
+.reserve .intro img{width:180px;margin-top:3rem;opacity:.95}
+form.res{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1.6rem 2rem}
+.res label{display:flex;flex-direction:column;gap:.35rem;font:italic 400 1.05rem var(--serif);color:var(--brass-hi)}
+.res .full{grid-column:1/-1}
+.res input,.res select,.res textarea{background:transparent;border:0;border-bottom:1px solid rgba(184,146,74,.4);padding:.55rem 0;color:var(--ivory);font:300 16px var(--sans);outline:0;color-scheme:dark;resize:vertical;min-height:44px}
+.res select option{background:var(--green)}
+.res input:focus,.res select:focus,.res textarea:focus{border-color:var(--brass-hi)}
+.res .send{grid-column:1/-1;display:flex;align-items:center;gap:1.4rem;flex-wrap:wrap;margin-top:.6rem}
+.res .msg{font:italic 400 1.15rem var(--serif);color:var(--brass-hi)}
+
+/* placeholder frame while photography is pending */
+.fpo{position:relative;width:100%;height:100%;min-height:inherit;display:grid;place-items:center;text-align:center;padding:2rem;background:repeating-linear-gradient(135deg,rgba(184,146,74,.07) 0 1px,transparent 1px 14px),var(--green-2);color:rgba(245,240,229,.7);font:italic 400 1.15rem/1.4 var(--serif);border:1px solid rgba(184,146,74,.28)}
+.fpo small{display:block;font:300 .78rem var(--sans);color:var(--brass);margin-bottom:.4rem;font-style:normal}
+.day .fpo,.house .fpo{aspect-ratio:5/4;height:auto}
+.day .two .fpo{aspect-ratio:4/5}
+.valley .fpo{position:absolute;inset:0;border:0}
+footer{background:#06130d;color:rgba(245,240,229,.62);padding:4.5rem 0 2rem;font-size:.92rem}
+footer .top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.5rem;padding-bottom:3rem;border-bottom:1px solid rgba(184,146,74,.18)}
+footer h4{font:italic 400 1.1rem var(--serif);color:var(--brass);margin-bottom:.9rem;font-weight:400}
+footer ul{list-style:none;display:grid;gap:.45rem}
+footer a:hover{color:var(--brass-hi)}
+.managed{margin-top:1.2rem;color:var(--ivory)}
+footer .bot{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding-top:1.6rem;font-size:.8rem}
+
+@media (max-width:900px){
+  header nav{display:none}
+  header nav.open{display:flex;position:fixed;inset:0;flex-direction:column;align-items:center;justify-content:center;gap:2rem;background:var(--green);font:400 2rem var(--serif);color:var(--ivory)}
+  .burger{display:block;position:relative;z-index:60}
+  header .btn{display:none}
+  .hero-foot .wrap{grid-template-columns:1fr}
+  .book{flex-wrap:wrap}
+  .book label{flex:1 1 45%;border-bottom:1px solid rgba(184,146,74,.25)}
+  .book .btn{flex:1 1 100%;min-height:52px}
+  .crown-film{width:min(82vw,420px)}
+  .house .wrap,.journey .wrap,.reserve .wrap,.day-grid{grid-template-columns:1fr}
+  .day-grid .two{margin-top:0}
+  .room-row{grid-template-columns:1fr 1fr}
+  .room:first-child{grid-column:1/-1}
+  .room:first-child .ph{aspect-ratio:16/10}
+  .rooms-head{flex-direction:column;align-items:start}
+  .keyband{grid-template-columns:1fr}
+  .keyband img{order:0;height:auto;aspect-ratio:16/10}
+  .keyband .cap{padding:3rem max(5vw,16px) 4rem}
+  footer .top{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  .room-row,form.res,.route{grid-template-columns:1fr}
+  .facts b{font-size:1.7rem}
+
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.rv{opacity:1;transform:none}}
+
+/* ============ FLOW & TYPE REFINEMENT ============ */
+:root{--r-lg:34px;--r-md:22px}
+body{font:400 17px/1.75 var(--sans);font-kerning:normal;text-rendering:optimizeLegibility;letter-spacing:.005em}
+p{text-wrap:pretty;hanging-punctuation:first}
+h1,h2,h3{font-weight:400;letter-spacing:-.012em;font-feature-settings:"liga","dlig","kern";text-wrap:balance}
+h2{font-size:clamp(2.6rem,5.4vw,4.9rem);line-height:1.02}
+h2 em,h1 em,h3 em{font-weight:300}
+h3{font-weight:500;letter-spacing:-.005em}
+.label{display:inline-flex;align-items:center;gap:.7rem;font:italic 400 1.22rem/1 var(--serif);letter-spacing:.01em}
+.label::before{content:"";width:34px;height:10px;flex:none;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 10'%3E%3Cpath d='M1 5c4-5 8-5 12 0s8 5 12 0 6-4 8-2' fill='none' stroke='black' stroke-width='1.4' stroke-linecap='round'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 10'%3E%3Cpath d='M1 5c4-5 8-5 12 0s8 5 12 0 6-4 8-2' fill='none' stroke='black' stroke-width='1.4' stroke-linecap='round'/%3E%3C/svg%3E") center/contain no-repeat}
+.btn{border-radius:999px;font:500 .95rem/1 var(--sans);letter-spacing:.02em;text-transform:none;padding:0 1.7rem;min-height:52px;transition:background .5s var(--ease),color .5s var(--ease),transform .5s var(--ease),box-shadow .5s var(--ease)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 30px -14px rgba(184,146,74,.6)}
+.btn::after{content:"→";font-family:var(--serif);font-size:1.15rem;transition:transform .5s var(--ease)}
+.btn:hover::after{transform:translateX(4px)}
+header .btn::after,.book .btn::after{content:none}
+
+/* header becomes a floating pill */
+header{transition:background .6s,padding .6s,margin .6s,border-radius .6s,box-shadow .6s}
+header.solid{margin:10px max(2vw,10px);border-radius:999px;padding:.55rem 0;box-shadow:0 18px 40px -24px rgba(0,0,0,.7)}
+header.solid .wrap{width:auto;padding:0 1.2rem 0 1.4rem}
+header nav{font:400 .98rem var(--sans);letter-spacing:.01em}
+header nav a{position:relative;padding:.3rem 0}
+header nav a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:6px;background:var(--brass-hi);opacity:0;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 6'%3E%3Cpath d='M0 3c5-4 10-4 15 0s10 4 15 0 7-3 10-1' fill='none' stroke='black' stroke-width='1.3'/%3E%3C/svg%3E") center/100% 100% no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 6'%3E%3Cpath d='M0 3c5-4 10-4 15 0s10 4 15 0 7-3 10-1' fill='none' stroke='black' stroke-width='1.3'/%3E%3C/svg%3E") center/100% 100% no-repeat;transition:opacity .4s}
+header nav a:hover::after{opacity:1}
+
+/* waves between sections */
+section,footer{position:relative}
+.wv{position:absolute;left:0;width:100%;height:clamp(46px,7vw,110px);top:1px;transform:translateY(-100%);z-index:4;pointer-events:none;display:block}
+.wv.down{top:-1px;transform:none}
+.valley .wv path{fill:var(--green)}
+.house .wv path,.days .wv path{fill:var(--ivory)}
+.rooms .wv path,.reserve .wv path{fill:var(--green)}
+.keyband .wv path{fill:#0b1a13}
+.journey .wv path{fill:var(--paper)}
+footer .wv path{fill:#06130d}
+.house,.rooms,.keyband,.days,.journey,.reserve,footer{z-index:2}
+.valley .cap{bottom:calc(9vh + 70px)}
+.credit{bottom:calc(1.2rem + 60px)}
+.contour{position:absolute;inset:0;width:100%;height:100%;color:var(--brass);opacity:.09;pointer-events:none;animation:drift 28s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translate3d(-2%,1.5%,0) scale(1.03)}}
+.rooms .wrap,.reserve .wrap{position:relative;z-index:1}
+
+/* hero: soft booking capsule */
+.hero{padding-bottom:3rem}
+.hero .place{font-size:1.3rem;letter-spacing:.01em}
+.hero-foot p{font-size:1.05rem;line-height:1.8}
+.book{border-radius:999px;padding:.35rem;border-color:rgba(184,146,74,.35);box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}
+.book label{border-right:0;position:relative;padding:.7rem 1.5rem}
+.book label+label::before{content:"";position:absolute;left:0;top:22%;bottom:22%;width:1px;background:rgba(184,146,74,.3)}
+.book .btn{border-radius:999px;min-height:58px;padding:0 1.9rem}
+
+/* house: arched photograph, softer facts */
+.house figure img{aspect-ratio:4/5;border-radius:999px 999px var(--r-lg) var(--r-lg);box-shadow:0 50px 80px -50px rgba(10,29,21,.55)}
+.house figure{max-width:500px;justify-self:center;position:relative}
+.house figure::before{content:"";position:absolute;inset:-18px -18px 40px 18px;border:1px solid rgba(184,146,74,.5);border-radius:999px 999px var(--r-lg) var(--r-lg);z-index:-1}
+.house figcaption{text-align:center}
+.house p{font-size:1.05rem}
+.facts{border-top:0;gap:1rem;margin-top:2.8rem}
+.facts div{padding:1.2rem 1.3rem;border-radius:var(--r-md);background:rgba(184,146,74,.09)}
+.facts b{font-weight:500;font-size:1.9rem}
+.facts span{display:block;line-height:1.3;margin-top:.35rem}
+
+/* rooms: palace-window arches, staggered */
+.room-row{gap:clamp(1.2rem,2.4vw,2.4rem);align-items:start}
+.room:nth-child(2){margin-top:5rem}
+.room:nth-child(3){margin-top:2.2rem}
+.room .ph{border-radius:999px 999px var(--r-lg) var(--r-lg);aspect-ratio:3/4;box-shadow:0 40px 70px -40px rgba(0,0,0,.8)}
+.room h3{font-size:2.1rem;margin-top:1.5rem;text-align:center}
+.room .meta{text-align:center;font-size:1.1rem}
+.room p{text-align:center;max-width:30ch;margin-inline:auto}
+.note{text-align:center}
+
+/* key band: capsule image edge */
+.keyband{padding:clamp(3rem,6vw,5rem) 0}
+.keyband img{border-radius:999px 0 0 999px;height:clamp(380px,40vw,620px)}
+
+/* days: organic frames */
+.day img{border-radius:var(--r-lg)}
+.day:first-child img{border-radius:62% 38% 46% 54% / 46% 52% 48% 54%;aspect-ratio:1/1}
+.day.two img{border-radius:999px 999px var(--r-lg) var(--r-lg)}
+.day h3{font-size:2.3rem}
+.day ul{border-top:0}
+.day li{border-bottom:1px dashed rgba(23,58,43,.22);font-size:1.25rem}
+
+/* journey + reserve */
+.addr{border-bottom:0;padding:1.8rem 2rem;border-radius:var(--r-lg);background:rgba(255,255,255,.45);font-size:1.4rem}
+.reserve form.res{background:rgba(255,255,255,.03);border:1px solid rgba(184,146,74,.22);border-radius:var(--r-lg);padding:clamp(1.4rem,3vw,2.4rem)}
+.res input,.res select,.res textarea{border:1px solid rgba(184,146,74,.28);border-radius:16px;padding:.7rem 1rem;background:rgba(255,255,255,.03)}
+footer .top{border-bottom-style:dashed}
+
+@media (max-width:900px){
+  header.solid{margin:8px}
+  .room:nth-child(2),.room:nth-child(3){margin-top:0}
+  .room:first-child .ph{aspect-ratio:4/3}
+  .keyband img{border-radius:0 0 var(--r-lg) var(--r-lg)}
+  .book{border-radius:var(--r-lg)}
+  .book .btn{border-radius:999px}
+  .book label+label::before{display:none}
+  .house figure::before{inset:-12px -12px 40px 12px}
+}
+@media (max-width:600px){
+  .facts{grid-template-columns:1fr 1fr 1fr;gap:.5rem}
+  .facts div{padding:.9rem .7rem}
+  .facts b{font-size:1.35rem}
+  .room h3,.room .meta,.room p{text-align:left;margin-inline:0}
+}
+@media (prefers-reduced-motion:reduce){.contour{animation:none}}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap">
+    <a class="mark" href="#top"><img src="media/crown-mark.png" alt=""><b>The Regal Inn</b></a>
+    <nav id="nav">
+      <a href="#house">The house</a><a href="#rooms">Rooms</a><a href="#days">Days here</a><a href="#journey">Getting here</a>
+    </nav>
+    <a class="btn" href="book.html">Reserve</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">Menu</button>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-stage">
+    <div class="crown-film">
+      <video id="crownVid" autoplay muted loop playsinline poster="media/crown-poster.jpg"><source src="media/crown-spin.mp4" type="video/mp4"></video>
+    </div>
+    <h1>The Regal <em>Inn</em></h1>
+    <div class="place">Prini · Manali · Himachal Pradesh</div>
+  </div>
+  <div class="hero-foot">
+    <div class="wrap">
+      <p>A small, grand house on the Left Bank of the Beas, just outside Manali. Deodar at the windows, snow on the skyline, and a welcome as old as the valley.</p>
+      <form class="book" id="quick">
+        <label>Arrive<input type="date" id="qa" required></label>
+        <label>Leave<input type="date" id="ql" required></label>
+        <label>Guests<select id="qg"><option value="2,0">2 adults</option><option value="1,0">1 adult</option><option value="2,1">2 adults, 1 child</option><option value="2,2">Family of 4</option></select></label>
+        <button class="btn fill" type="submit">Find my room</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="valley" id="valley" data-media="valley">
+  <svg class="wv down" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0,73 C180,91 180,46 360,64 C540,46 540,52 720,34 C900,52 900,6 1080,24 C1260,6 1260,66 1440,48 V0 H0 Z"><animate attributeName="d" dur="15s" repeatCount="indefinite" values="M0,73 C180,91 180,46 360,64 C540,46 540,52 720,34 C900,52 900,6 1080,24 C1260,6 1260,66 1440,48 V0 H0 Z;M0,57 C180,75 180,9 360,27 C540,9 540,50 720,32 C900,50 900,37 1080,55 C1260,37 1260,94 1440,76 V0 H0 Z;M0,73 C180,91 180,46 360,64 C540,46 540,52 720,34 C900,52 900,6 1080,24 C1260,6 1260,66 1440,48 V0 H0 Z" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1"/></path></svg>
+  <picture><source type="image/webp" srcset="media/valley-960.webp 960w, media/valley-1600.webp 1600w, media/valley-2200.webp 2200w" sizes="100vw"><img src="media/valley-2200.jpg" srcset="media/valley-960.jpg 960w, media/valley-1600.jpg 1600w, media/valley-2200.jpg 2200w" sizes="100vw" alt="Snow peaks above deodar forest near Manali" loading="lazy" decoding="async" class="poster"></picture>
+  <video id="valleyVid" muted loop playsinline preload="none" poster="media/valley-poster.jpg" aria-hidden="true"></video>
+  <a class="credit" href="https://www.pexels.com/video/stunning-aerial-view-of-himalayan-mountains-at-sunset-30778289/" target="_blank" rel="noopener">Film: Ex Route Adventures, Pexels</a>
+  <div class="cap wrap rv">
+    <div class="label">Prini, Manali · 2,050 m</div>
+    <h2>The valley, <em>at your window.</em></h2>
+    <p>Wake to the river below and the Pir Panjal above. The light changes on the peaks all day long; the house is built to let you watch it.</p>
+  </div>
+</section>
+
+<section class="house" id="house">
+  <svg class="wv" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0,68 C180,86 180,20 360,38 C540,20 540,42 720,24 C900,42 900,20 1080,38 C1260,20 1260,91 1440,73 V100 H0 Z"><animate attributeName="d" dur="16s" repeatCount="indefinite" values="M0,68 C180,86 180,20 360,38 C540,20 540,42 720,24 C900,42 900,20 1080,38 C1260,20 1260,91 1440,73 V100 H0 Z;M0,30 C180,48 180,9 360,27 C540,9 540,69 720,51 C900,69 900,58 1080,76 C1260,58 1260,80 1440,62 V100 H0 Z;M0,68 C180,86 180,20 360,38 C540,20 540,42 720,24 C900,42 900,20 1080,38 C1260,20 1260,91 1440,73 V100 H0 Z" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1"/></path></svg>
+  <div class="wrap">
+    <div>
+      <div class="label rv">The house</div>
+      <h2 class="rv">Kept small, <em>on purpose.</em></h2>
+      <p class="rv">The Regal Inn sits on the old Left Bank road to Naggar, a few minutes past the Green Tax Barrier and far enough from the Mall Road to hear the river. It is run like a family house: the same faces at the door each morning, tea brought before you ask, and a fire laid in the evening.</p>
+      <p class="rv">Every stay is looked after by Suvin Hospitality, whose people know the valley by its seasons: when the apples ripen, when the passes open, and which road is quiet today.</p>
+      <div class="facts rv">
+        <div><b>2,050 m</b><span>above sea level</span></div>
+        <div><b>Left Bank</b><span>of the Beas</span></div>
+        <div><b>24 hrs</b><span>at the front desk</span></div>
+      </div>
+    </div>
+    <figure class="rv">
+      <img src="media/crown-cushion.jpg" alt="Gold crown set with emeralds and rubies on a green velvet cushion">
+      <figcaption>The crown of the house, our emblem since the first guest.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="rooms" id="rooms">
+  <svg class="contour" viewBox="0 0 1200 800" preserveAspectRatio="none" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1"><path d="M-50,120 C200,60 380,220 620,140 S1000,40 1260,150"/><path d="M-50,205 C200,145 380,305 620,225 S1000,125 1260,235"/><path d="M-50,290 C200,230 380,390 620,310 S1000,210 1260,320"/><path d="M-50,375 C200,315 380,475 620,395 S1000,295 1260,405"/><path d="M-50,460 C200,400 380,560 620,480 S1000,380 1260,490"/><path d="M-50,545 C200,485 380,645 620,565 S1000,465 1260,575"/><path d="M-50,630 C200,570 380,730 620,650 S1000,550 1260,660"/><path d="M-50,715 C200,655 380,815 620,735 S1000,635 1260,745"/></g></svg>
+  <svg class="wv" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0,51 C180,69 180,7 360,25 C540,7 540,53 720,35 C900,53 900,49 1080,67 C1260,49 1260,92 1440,74 V100 H0 Z"><animate attributeName="d" dur="17s" repeatCount="indefinite" values="M0,51 C180,69 180,7 360,25 C540,7 540,53 720,35 C900,53 900,49 1080,67 C1260,49 1260,92 1440,74 V100 H0 Z;M0,24 C180,42 180,24 360,42 C540,24 540,93 720,75 C900,93 900,52 1080,70 C1260,52 1260,59 1440,41 V100 H0 Z;M0,51 C180,69 180,7 360,25 C540,7 540,53 720,35 C900,53 900,49 1080,67 C1260,49 1260,92 1440,74 V100 H0 Z" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1"/></path></svg>
+  <div class="wrap">
+    <div class="rooms-head">
+      <div><div class="label rv">Rooms</div><h2 class="rv">Rooms that <em>hold the view.</em></h2></div>
+      <p class="rv">Warm timber, Kullu wool throws and wide windows. Every room faces the mountains; none face the road.</p>
+    </div>
+    <div class="room-row">
+      <article class="room rv"><div class="ph"><picture><source type="image/webp" srcset="media/room-1-600.webp 600w, media/room-1-900.webp 900w" sizes="(max-width:600px) 92vw, (max-width:900px) 46vw, 30vw"><img src="media/room-1-900.jpg" srcset="media/room-1-600.jpg 600w, media/room-1-900.jpg 900w" sizes="(max-width:600px) 92vw, (max-width:900px) 46vw, 30vw" alt="Mountain lodge bedroom with a wide window" loading="lazy" decoding="async"></picture></div>
+        <h3>The Regal Suite</h3><div class="meta">Valley view · private balcony · king</div>
+        <p>A sitting room by the window, a deep bath, and a balcony that looks straight up at the snowline.</p></article>
+      <article class="room rv"><div class="ph"><picture><source type="image/webp" srcset="media/room-2-600.webp 600w, media/room-2-900.webp 900w" sizes="(max-width:600px) 92vw, (max-width:900px) 46vw, 30vw"><img src="media/room-2-900.jpg" srcset="media/room-2-600.jpg 600w, media/room-2-900.jpg 900w" sizes="(max-width:600px) 92vw, (max-width:900px) 46vw, 30vw" alt="Calm bedroom with soft linen and a reading lamp" loading="lazy" decoding="async"></picture></div>
+        <h3>Beas Room</h3><div class="meta">River side · king or twin</div>
+        <p>Fall asleep to the river; wake to orchards and the far ridge.</p></article>
+      <article class="room rv"><div class="ph"><picture><source type="image/webp" srcset="media/room-3-600.webp 600w, media/room-3-900.webp 900w" sizes="(max-width:600px) 92vw, (max-width:900px) 46vw, 30vw"><img src="media/room-3-900.jpg" srcset="media/room-3-600.jpg 600w, media/room-3-900.jpg 900w" sizes="(max-width:600px) 92vw, (max-width:900px) 46vw, 30vw" alt="Cosy bedroom with cedar-panelled walls" loading="lazy" decoding="async"></picture></div>
+        <h3>Deodar Room</h3><div class="meta">Forest view · queen</div>
+        <p>Snug and cedar-scented: the best seat in the house for a snowfall.</p></article>
+    </div>
+    <p class="note">Room photographs are stock images standing in for the hotel's own photography.</p>
+  </div>
+</section>
+
+<section class="keyband" id="key">
+  <svg class="wv" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0,29 C180,47 180,10 360,28 C540,10 540,78 720,60 C900,78 900,58 1080,76 C1260,58 1260,78 1440,60 V100 H0 Z"><animate attributeName="d" dur="18s" repeatCount="indefinite" values="M0,29 C180,47 180,10 360,28 C540,10 540,78 720,60 C900,78 900,58 1080,76 C1260,58 1260,78 1440,60 V100 H0 Z;M0,39 C180,57 180,54 360,72 C540,54 540,88 720,70 C900,88 900,24 1080,42 C1260,24 1260,43 1440,25 V100 H0 Z;M0,29 C180,47 180,10 360,28 C540,10 540,78 720,60 C900,78 900,58 1080,76 C1260,58 1260,78 1440,60 V100 H0 Z" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1"/></path></svg>
+  <img src="media/key.jpg" alt="Brass room key with an enamel fob engraved The Regal Inn, 108" loading="lazy">
+  <div class="cap rv">
+    <div class="label">Arrival</div>
+    <h2>Your key is <em>waiting.</em></h2>
+    <p>Real keys, brass and heavy, handed to you at the door. We'll have the fire lit and the kahwa poured before you've taken your coat off.</p>
+    <a class="btn" href="book.html">Walk to your room</a>
+  </div>
+</section>
+
+<section class="days" id="days">
+  <svg class="wv" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0,28 C180,46 180,39 360,57 C540,39 540,94 720,76 C900,94 900,40 1080,58 C1260,40 1260,48 1440,30 V100 H0 Z"><animate attributeName="d" dur="14s" repeatCount="indefinite" values="M0,28 C180,46 180,39 360,57 C540,39 540,94 720,76 C900,94 900,40 1080,58 C1260,40 1260,48 1440,30 V100 H0 Z;M0,68 C180,86 180,58 360,76 C540,58 540,69 720,51 C900,69 900,6 1080,24 C1260,6 1260,53 1440,35 V100 H0 Z;M0,28 C180,46 180,39 360,57 C540,39 540,94 720,76 C900,94 900,40 1080,58 C1260,40 1260,48 1440,30 V100 H0 Z" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1"/></path></svg>
+  <div class="wrap">
+    <div class="label rv">Days here</div>
+    <h2 class="rv">Slow mornings, <em>long valley days.</em></h2>
+    <div class="day-grid">
+      <div class="day rv">
+        <picture><source type="image/webp" srcset="media/dining-700.webp 700w, media/dining-1200.webp 1200w" sizes="(max-width:900px) 92vw, 55vw"><img src="media/dining-1200.jpg" srcset="media/dining-700.jpg 700w, media/dining-1200.jpg 1200w" sizes="(max-width:900px) 92vw, 55vw" alt="A bonfire glowing at dusk" loading="lazy" decoding="async"></picture>
+        <h3>At the table</h3>
+        <p>River trout, siddu straight from the steamer, slow-cooked dham and apples from the orchards next door. We'll set your table by the window, in the garden or round the bonfire.</p>
+        <ul><li>Kahwa at first light<span>Daily</span></li><li>Himachali dham<span>On request</span></li><li>Bonfire dinner<span>Evenings</span></li></ul>
+      </div>
+      <div class="day two rv">
+        <picture><source type="image/webp" srcset="media/excursion-600.webp 600w, media/excursion-1000.webp 1000w" sizes="(max-width:900px) 92vw, 42vw"><img src="media/excursion-1000.jpg" srcset="media/excursion-600.jpg 600w, media/excursion-1000.jpg 1000w" sizes="(max-width:900px) 92vw, 42vw" alt="Manali town below snow peaks, framed by deodars" loading="lazy" decoding="async"></picture>
+        <h3>Out in the valley</h3>
+        <p>Our front desk plans the days around you, with a car and a local guide whenever you want them.</p>
+        <ul><li>Naggar Castle &amp; Roerich Estate<span>Upriver</span></li><li>Solang &amp; Atal Tunnel<span>Snow</span></li><li>Old Manali &amp; Hadimba<span>Heritage</span></li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="journey" id="journey">
+  <svg class="wv" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0,51 C180,69 180,57 360,75 C540,57 540,85 720,67 C900,85 900,21 1080,39 C1260,21 1260,42 1440,24 V100 H0 Z"><animate attributeName="d" dur="15s" repeatCount="indefinite" values="M0,51 C180,69 180,57 360,75 C540,57 540,85 720,67 C900,85 900,21 1080,39 C1260,21 1260,42 1440,24 V100 H0 Z;M0,76 C180,94 180,39 360,57 C540,39 540,45 720,27 C900,45 900,11 1080,29 C1260,11 1260,79 1440,61 V100 H0 Z;M0,51 C180,69 180,57 360,75 C540,57 540,85 720,67 C900,85 900,21 1080,39 C1260,21 1260,42 1440,24 V100 H0 Z" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1"/></path></svg>
+  <div class="wrap">
+    <div><div class="label rv">Getting here</div><h2 class="rv">Just past the bustle, <em>on the road to Naggar.</em></h2></div>
+    <div class="rv">
+      <div class="addr">Near Old Green Tax Barrier,<br>Manali–Nagar Left Bank Main Road, Shuru,<br>V.P.O. Prini, Manali, Distt. Kullu,<br>Himachal Pradesh 175143</div>
+      <div class="route">
+        <div><b>From Manali</b><span>A short drive down the Left Bank road</span></div>
+        <div><b>By air</b><span>Bhuntar Airport, Kullu</span></div>
+        <div><b>By bus</b><span>Manali bus stand; we'll collect you</span></div>
+        <div><b>Nearby</b><span>Jagatsukh, Naggar, Solang</span></div>
+      </div>
+      <a class="btn ink" href="https://maps.google.com/?q=Prini+Manali+Himachal+Pradesh+175143" target="_blank" rel="noopener">Open in Google Maps</a>
+    </div>
+  </div>
+</section>
+
+<section class="reserve" id="reserve">
+  <svg class="contour" viewBox="0 0 1200 800" preserveAspectRatio="none" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1"><path d="M-50,120 C200,60 380,220 620,140 S1000,40 1260,150"/><path d="M-50,205 C200,145 380,305 620,225 S1000,125 1260,235"/><path d="M-50,290 C200,230 380,390 620,310 S1000,210 1260,320"/><path d="M-50,375 C200,315 380,475 620,395 S1000,295 1260,405"/><path d="M-50,460 C200,400 380,560 620,480 S1000,380 1260,490"/><path d="M-50,545 C200,485 380,645 620,565 S1000,465 1260,575"/><path d="M-50,630 C200,570 380,730 620,650 S1000,550 1260,660"/><path d="M-50,715 C200,655 380,815 620,735 S1000,635 1260,745"/></g></svg>
+  <svg class="wv" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0,69 C180,87 180,55 360,73 C540,55 540,59 720,41 C900,59 900,7 1080,25 C1260,7 1260,59 1440,41 V100 H0 Z"><animate attributeName="d" dur="16s" repeatCount="indefinite" values="M0,69 C180,87 180,55 360,73 C540,55 540,59 720,41 C900,59 900,7 1080,25 C1260,7 1260,59 1440,41 V100 H0 Z;M0,64 C180,82 180,18 360,36 C540,18 540,44 720,26 C900,44 900,29 1080,47 C1260,29 1260,93 1440,75 V100 H0 Z;M0,69 C180,87 180,55 360,73 C540,55 540,59 720,41 C900,59 900,7 1080,25 C1260,7 1260,59 1440,41 V100 H0 Z" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1"/></path></svg>
+  <div class="wrap">
+    <div class="intro">
+      <div class="label rv">Reservations</div>
+      <h2 class="rv">Walk to <em>your room.</em></h2>
+      <p class="rv">Choose your dates, walk the corridor, step inside each room and set the light, the fire and the snow. When it feels right, your brass key is waiting.</p>
+      <a class="btn fill rv" href="book.html" style="margin-top:1.8rem">Begin the walk</a>
+      <p class="rv" style="margin-top:2.4rem;font-size:.92rem">Prefer a simple request? Use the form and the front desk will call you back.</p>
+      <img class="rv" src="media/crown-mark.png" alt="">
+    </div>
+    <form class="res rv" id="res">
+      <label>Full name<input name="name" required autocomplete="name"></label>
+      <label>Phone<input name="phone" type="tel" required autocomplete="tel" placeholder="+91"></label>
+      <label>Arrive<input type="date" id="ra" required></label>
+      <label>Leave<input type="date" id="rl" required></label>
+      <label>Room<select id="rr"><option>The Regal Suite</option><option>Beas Room</option><option>Deodar Room</option><option>Let the front desk choose</option></select></label>
+      <label>Guests<select id="rg"><option>2 adults</option><option>1 adult</option><option>2 adults, 1 child</option><option>Family of 4</option></select></label>
+      <label class="full">A note for us<textarea rows="2" placeholder="An anniversary, an early arrival, a dietary wish…"></textarea></label>
+      <div class="send"><button class="btn fill" type="submit">Request reservation</button><span class="msg" id="msg" role="status"></span></div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <svg class="wv" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0,75 C180,93 180,27 360,45 C540,27 540,45 720,27 C900,45 900,19 1080,37 C1260,19 1260,80 1440,62 V100 H0 Z"><animate attributeName="d" dur="17s" repeatCount="indefinite" values="M0,75 C180,93 180,27 360,45 C540,27 540,45 720,27 C900,45 900,19 1080,37 C1260,19 1260,80 1440,62 V100 H0 Z;M0,40 C180,58 180,8 360,26 C540,8 540,61 720,43 C900,61 900,56 1080,74 C1260,56 1260,87 1440,69 V100 H0 Z;M0,75 C180,93 180,27 360,45 C540,27 540,45 720,27 C900,45 900,19 1080,37 C1260,19 1260,80 1440,62 V100 H0 Z" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1"/></path></svg>
+  <div class="wrap">
+    <div class="top">
+      <div><a class="mark" href="#top"><img src="media/crown-mark.png" alt=""><b>The Regal Inn</b></a>
+        <p class="managed">Managed by Suvin Hospitality Pvt. Ltd.</p></div>
+      <div><h4>Write or call</h4><ul><li>+91 00000 00000</li><li>stay@theregalinn.in</li><li>Front desk, 24 hours</li></ul></div>
+      <div><h4>Find us</h4><ul><li>Near Old Green Tax Barrier</li><li>V.P.O. Prini, Manali</li><li>Distt. Kullu, H.P. 175143</li></ul></div>
+    </div>
+    <div class="bot"><span>© <span id="yr"></span> The Regal Inn, Manali</span><span>Suvin Hospitality Pvt. Ltd.</span></div>
+  </div>
+</footer>
+
+<script>
+{
+  const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+  $('#yr').textContent = new Date().getFullYear();
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) $$('svg.wv').forEach(v => v.pauseAnimations && v.pauseAnimations());
+  const iso = d => d.toISOString().slice(0, 10), t0 = new Date(), t1 = new Date(Date.now() + 3 * 864e5);
+  for (const id of ['#qa', '#ra']) { $(id).value = iso(t0); $(id).min = iso(t0); }
+  for (const id of ['#ql', '#rl']) { $(id).value = iso(t1); $(id).min = iso(t0); }
+
+  const hdr = $('#hdr');
+  const onScroll = () => hdr.classList.toggle('solid', scrollY > 40);
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  $('#burger').addEventListener('click', e => { const o = $('#nav').classList.toggle('open'); e.currentTarget.setAttribute('aria-expanded', o); e.currentTarget.textContent = o ? 'Close' : 'Menu'; });
+  $$('#nav a').forEach(a => a.addEventListener('click', () => { $('#nav').classList.remove('open'); $('#burger').textContent = 'Menu'; }));
+
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .15 });
+  $$('.rv').forEach(el => io.observe(el));
+
+  // photo slots: show a labelled frame until the photograph exists
+  $$('img[data-photo]').forEach(img => {
+    const swap = () => { const d = document.createElement('div'); d.className = 'fpo'; d.innerHTML = '<div><small>Photograph to come</small>' + img.alt + '</div>'; img.replaceWith(d); };
+    if (img.complete && !img.naturalWidth) swap(); else img.addEventListener('error', swap);
+  });
+
+  // valley film: right size for the screen, never on reduced motion or data saver, plays only on screen
+  const vv = $('#valleyVid');
+  const calm = matchMedia('(prefers-reduced-motion: reduce)').matches || (navigator.connection && navigator.connection.saveData);
+  if (vv && !calm) {
+    let loaded = false;
+    new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) {
+        if (!loaded) { vv.src = innerWidth > 1100 ? 'media/valley.mp4' : 'media/valley-720.mp4'; loaded = true; vv.addEventListener('playing', () => vv.classList.add('on'), { once: true }); }
+        vv.play().catch(() => {});
+      } else vv.pause();
+    }), { rootMargin: '200px 0px', threshold: 0 }).observe(vv);
+  } else if (vv) vv.remove();
+
+  const cv = $('#crownVid'); new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? cv.play().catch(() => {}) : cv.pause())).observe(cv);
+  // crown drifts slowly upward on scroll
+  const film = $('.crown-film');
+  addEventListener('scroll', () => { if (scrollY < innerHeight) film.style.transform = `translateY(${scrollY * -.12}px)`; }, { passive: true });
+
+  $('#quick').addEventListener('submit', e => {
+    e.preventDefault();
+    const [a, k] = $('#qg').value.split(',').map(Number);
+    try { localStorage.setItem('regal-prefill', JSON.stringify({ in: $('#qa').value, out: $('#ql').value, adults: a, kids: k })); } catch {}
+    location.href = 'book.html';
+  });
+  $('#res').addEventListener('submit', e => {
+    e.preventDefault();
+    const n = (e.target.name.value.trim().split(' ')[0]) || 'there';
+    $('#msg').textContent = `Thank you, ${n}. We'll call you shortly to confirm.`;
+    // TODO before launch: send this form to the hotel (email / WhatsApp / Sheets endpoint).
+  });
+}
+</script>
+</body>
+</html>
